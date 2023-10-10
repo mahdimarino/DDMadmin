@@ -80,6 +80,14 @@ Route::delete('/employeerequest/{employeerequest}/', [RequestContoler::class, 'd
 
 
 Route::get('/task/create',[TaskController::class,'create']);
+Route::post('/task',[TaskController::class,'store']);
+Route::get('/task',[TaskController::class,'index'])->middleware('auth');
+Route::get('/task/myTaskslist',[TaskController::class,'myTaskslist'])->middleware('auth');
+Route::delete('/task/{task}/', [TaskController::class, 'destroy']);
+Route::get('/task/{task}/edit',[TaskController::class,'edit']);
+Route::put('/task/{task}/', [TaskController::class, 'update']);
+
+
 
 
 Route::get('/register',[UserController::class,'create']);

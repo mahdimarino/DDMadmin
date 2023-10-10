@@ -10,7 +10,7 @@
     </div>
     
     
-    <form action="/report" method="post" class="form-horizontal">
+    <form action="/task" method="post" class="form-horizontal">
         @csrf
     <div class="card-body">
     <div class="form-group row">

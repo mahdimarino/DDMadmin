@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Task;
 use App\Models\Report;
 use App\Models\Listing;
 use App\Models\Request;
@@ -53,5 +54,9 @@ class User extends Authenticatable
 
     public function employeerequests(){
         return $this-> hasMany(Employeerequest::class, 'user_id');
+    }
+
+    public function tasks(){
+        return $this-> hasMany(Task::class, 'user_id');
     }
 }

@@ -216,7 +216,7 @@
 
 
               <li class="nav-item">
-                <a href="/report/create" class="nav-link active">
+                <a href="/task" class="nav-link active">
                   <i class="nav-icon fas fa-list"></i>
                   <p>To Do List<span class="right badge badge-danger">New</span></p>
                 </a>
