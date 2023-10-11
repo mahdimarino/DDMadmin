@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Routing\Redirector;
  
 class LoginController extends Controller
 {
@@ -15,14 +16,18 @@ class LoginController extends Controller
     {
         $formField = $request->validate([
             'email' => ['required', 'email'],
-            
             'password' => ['required'],
         ]);
  
         if (Auth::attempt($formField)) {
-            $request->session()->regenerate();
+            $user = Auth::user();
+            if ($user->user_role === 'admin') {
+                return redirect('/home');
+            } elseif ($user->user_role === 'employee') {
+                return redirect('/staffhome');
+            } 
  
-            return redirect()->intended('/index.php');
+            return redirect()->intended('/login.php');
         }
  
         return back()->withErrors([
