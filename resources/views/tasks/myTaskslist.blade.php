@@ -19,20 +19,20 @@
     </section>
     
 <section class="content">
+    @unless ($tasks->isEmpty())
+        
     
-    <div class="card">
+    @foreach($tasks as $task)
+    <div class="card m-2">
     <div class="card-body">
     <div class="row ">
     <div class="col-12 mx-auto col-md-12 col-lg-10 order-2 order-md-1">
    
     <div class="row">
     <div class="col-12">
-    <h4>Recent Task</h4>
     
-    @unless ($tasks->isEmpty())
-        
     
-    @foreach($tasks as $task)
+   
     <div class="post clearfix">
     <div class="user-block">
     <img class="img-circle img-bordered-sm" src="{{asset('/dist/img/download.png')}}" alt="User Image">
@@ -63,18 +63,20 @@
     </p>
     
     </div>
-    @endforeach
-    @else
-    <h1>No tasks found</h1>
-    @endunless
+    
     
     </div>
     </div>
    
     </div>
+</div>
+</div>
     
     </div>
-    
+    @endforeach
+    @else
+    <h1>No tasks found</h1>
+    @endunless
 </section>
     
    

@@ -189,24 +189,15 @@
         </div>
         <div class="info">
           <a href="#" class="d-block">{{auth()->user()->name}}</a>
-          <x-flashmessage />
+          
         </div>
       </div>
 
       <!-- SidebarSearch Form -->
-      <div class="form-inline">
-        <div class="input-group" data-widget="sidebar-search">
-          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-          <div class="input-group-append">
-            <button class="btn btn-sidebar">
-              <i class="fas fa-search fa-fw"></i>
-            </button>
-          </div>
-        </div>
-      </div>
+      
 
       <!-- Sidebar Menu -->
-      <nav class="mt-2">
+      <nav class="mt-5">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
@@ -218,7 +209,8 @@
               <li class="nav-item">
                 <a href="/task" class="nav-link active">
                   <i class="nav-icon fas fa-list"></i>
-                  <p>To Do List<span class="right badge badge-danger">New</span></p>
+                  <p>To Do List</p>
+                  {{-- <p>To Do List<span class="right badge badge-danger">New</span></p> --}}
                 </a>
               </li>
 
@@ -422,10 +414,10 @@
             </ul>
           </li> --}}
           
-          <li style="float: bottom;" class="nav-item text-light">
+          <li  class=" text-light">
             <form method="post" action="/logout">
               @csrf
-            <p type="submit" class="nav-link text text-light ">
+            <button style="background-color: transparent; border: none; " type="submit" class=" text-light ml-3 mt-3 ">
               
               <i class="fas nav-icon fa-sign-out-alt"></i>
               
@@ -433,7 +425,7 @@
                Logout
               
             
-            </p>
+            </button>
           </form>
           </li>
           
@@ -580,5 +572,6 @@
 <script src="{{ asset('dist/js/demo.js') }}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
+<script src="//unpkg.com/alpinejs" defer></script>
 </body>
 </html>

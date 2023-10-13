@@ -22,20 +22,21 @@
             </section>
     
 <section class="content">
+    @unless ($reports->isEmpty())
+        
     
-    <div class="card">
+    @foreach($reports as $report)
+    
+    <div class="card m-1">
     <div class="card-body">
     <div class="row ">
     <div class="col-12 mx-auto col-md-12 col-lg-10 order-2 order-md-1">
    
     <div class="row">
     <div class="col-12">
-    <h4>Recent Activity</h4>
     
-    @unless ($reports->isEmpty())
-        
     
-    @foreach($reports as $report)
+    
     <div class="post clearfix">
     <div class="user-block">
     <img class="img-circle img-bordered-sm" src="{{asset('/dist/img/download.png')}}" alt="User Image">
@@ -57,7 +58,7 @@
     <span class="description">{{ $report->user->job_title }}</span>
     
     </div>
-    <h4>{{ $report->title }}</h4>
+    {{-- <h4>{{ $report->title }}</h4> --}}
     <p>
         {{ $report->content }}
     </p>
@@ -66,18 +67,19 @@
     </p>
     
     </div>
-    @endforeach
-    @else
-    <h1>No Reports found</h1>
-    @endunless
-    
+   
+</div>
     </div>
     </div>
    
     </div>
     
     </div>
-    
+</div>
+@endforeach
+@else
+<h1>No Reports found</h1>
+@endunless
 </section>
     
    

@@ -49,7 +49,7 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <!-- Navbar Search -->
-      <li class="nav-item">
+      {{-- <li class="nav-item">
         <a class="nav-link" data-widget="navbar-search" href="#" role="button">
           <i class="fas fa-search"></i>
         </a>
@@ -68,7 +68,7 @@
             </div>
           </form>
         </div>
-      </li>
+      </li> --}}
 
       <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
@@ -185,7 +185,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="{{asset('/dist/img/download.png')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block">{{auth()->user()->name}}</a>
@@ -194,7 +194,7 @@
       </div>
 
       <!-- SidebarSearch Form -->
-      <div class="form-inline">
+      {{-- <div class="form-inline">
         <div class="input-group" data-widget="sidebar-search">
           <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
           <div class="input-group-append">
@@ -203,7 +203,7 @@
             </button>
           </div>
         </div>
-      </div>
+      </div> --}}
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
@@ -236,8 +236,8 @@
               
               <i class="fa-solid nav-icon fas fa-user"></i>
               <p>
-                Staff
-                <span class="right badge badge-danger">New</span>
+                Team members
+                {{-- <span class="right badge badge-danger">New</span> --}}
               </p>
             </a>
           </li>
@@ -264,9 +264,9 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/tables/jsgrid.html" class="nav-link">
+                <a href="/users/?group_name=Group%202" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Group 33</p>
+                  <p name="Group 2">Group 2</p>
                 </a>
               </li>
             </ul>
@@ -276,7 +276,9 @@
           <li class="nav-item">
             <a href="/task" class="nav-link ">
               <i class="nav-icon fas fa-list"></i>
-              <p>To Do List <span class="badge badge-info right">2</span></p>
+              <p>To Do List 
+                {{-- <span class="badge badge-info right">2</span> --}}
+              </p>
             </a>
           </li>
           <li class="nav-item">
@@ -288,7 +290,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/report" class="nav-link">
+            <a href="/employeerequest" class="nav-link">
               <i class="nav-icon far fa-envelope"></i>
               <p>
                Requests
@@ -334,10 +336,10 @@
             </a>
           </li>
           
-          <li style="float: bottom;" class="nav-item text-light">
+          <li  class=" text-light">
             <form method="post" action="/logout">
               @csrf
-            <p type="submit" class="nav-link text text-light ">
+            <button style="background-color: transparent; border: none; " type="submit" class=" text-light ml-3 mt-3 ">
               
               <i class="fas nav-icon fa-sign-out-alt"></i>
               
@@ -345,10 +347,18 @@
                Logout
               
             
-            </p>
+            </button>
           </form>
           </li>
-          
+         {{--  <li class="nav-item">
+            <form method="post" action="/logout">
+              @csrf
+            <button class="nav-link btn" type="submit" alt="logout" data-slide="true"  role="button">
+              <i class="fas nav-icon fa-sign-out-alt"></i>
+            </button>
+           </form>
+          </li>
+           --}}
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -373,7 +383,8 @@
 
     <!-- Main content -->
     <section class="content">
-      <x-flashmessage /> <div >@yield('content')</div>
+      <x-flashmessage />
+       <div >@yield('content')</div>
     </section>
     <!-- /.content -->
   </div>
@@ -407,15 +418,24 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
+<script src="{{ asset('/plugins/jquery/jquery.min.js') }}"></script>
 <!-- jQuery UI 1.11.4 -->
-<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="{{ asset('/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
   $.widget.bridge('uibutton', $.ui.button)
 </script>
 <!-- Bootstrap 4 -->
-<script src="{{ asset('/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script>
+  function filterTable() {
+    const query = q => document.querySelectorAll(q);
+    const filters = [...query('th input')].map(e => new RegExp(e.value, 'i'));
+
+    query('tbody tr').forEach(row => row.style.display =
+        filters.every((f, i) => f.test(row.cells[i].textContent)) ? '' : 'none');
+}
+</script>
+<script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- ChartJS -->
 <script src="{{ asset('plugins/chart.js/Chart.min.js') }}"></script>
 <!-- Sparkline -->
@@ -440,5 +460,9 @@
 <script src="{{ asset('dist/js/demo.js') }}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
+<script src="//unpkg.com/alpinejs" defer></script>
+
+
+
 </body>
 </html>

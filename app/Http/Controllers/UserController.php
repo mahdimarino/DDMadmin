@@ -10,15 +10,37 @@ use Illuminate\Contracts\Validation\Rule;
 class UserController extends Controller
 {
    
+    public function index(Request $request) {
+        $group_name = $request->query('group_name');
+        $job_title = $request->query('job_title');
+        $name = $request->query('name');
+    
+        $users = User::query();
+    
+        if ($group_name) {
+            $users->where('group_name', $group_name);
+        }
+    
+        if ($job_title) {
+            $users->where('job_title', $job_title);
+        }
 
+        /* if ($name) {
+            $users->where('name', $name);
+        } */
+    
+        $users = $users->orderBy('created_at', 'desc')->get();
+    
+        return view('users.index', ['users' => $users]);
+    }
 
  
-    public function index()
+  /*   public function index()
 {
     $users = User::orderBy('created_at', 'desc')->get();
     
     return view('users.index', ['users' => $users]);
-}
+} */
 
 public function myProfile(User $users){
     return view('users.myProfile',[

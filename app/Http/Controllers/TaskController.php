@@ -11,12 +11,12 @@ class TaskController extends Controller
         return view('tasks.create');
     }
 
+   
     public function index(){
-        return view('tasks.index',[
-            
-            'tasks'=> Task::latest()->get()
-                    
-            ]);
+        $user = auth()->user(); // Retrieve the authenticated user
+        $tasks = Task::latest()->get();
+        
+        return view('tasks.index', compact('user', 'tasks'));
     }
 
     public function store(Request $request){

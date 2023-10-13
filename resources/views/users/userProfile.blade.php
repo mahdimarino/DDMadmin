@@ -1,4 +1,4 @@
-@extends('staffhome')
+@extends('home')
 
 @section('content')
     
@@ -49,7 +49,7 @@
                         <b><i class="fa-solid nav-icon fas fa-users mr-1"></i> Group</b> <a class="float-right">{{$user->group_name}}</a>
                       </li>
                       <li class="list-group-item">
-                        <b><i class="far fa-file-alt mr-1"></i> Reports</b> <a class="float-right"><a href="{{ route('report.singleEmployeeReports', ['userId' => $user->id]) }}">View Reports for {{ $user->name }}</a></a>
+                        <b><i class="far fa-file-alt mr-1"></i> Reports</b> <a class="float-right" href="{{ route('report.singleEmployeeReports', ['userId' => $user->id]) }}">View Reports</a>
                       </li>
                     </ul>
     

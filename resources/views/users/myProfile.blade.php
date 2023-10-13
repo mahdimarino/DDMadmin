@@ -49,7 +49,7 @@
                         <b><i class="fa-solid nav-icon fas fa-users mr-1"></i> Group</b> <a class="float-right">{{$users->group_name}}</a>
                       </li>
                       <li class="list-group-item">
-                        <b><i class="far fa-file-alt mr-1"></i> Reports</b> <a class="float-right">13</a>
+                        <b><i class="far fa-file-alt mr-1"></i> Reports</b> <a class="float-right" href="/report/myReports">My Reports</a>
                       </li>
                     </ul>
     

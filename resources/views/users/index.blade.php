@@ -8,8 +8,11 @@
       <div class="col-sm-6">
         <h1>Employee List</h1>
       </div>
+      
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
+          
+          
           <li class="breadcrumb-item"><a href="#">Home</a></li>
           <li class="breadcrumb-item active">Employee List</li>
         </ol>
@@ -20,7 +23,33 @@
    
     <div class="card-body p-0">
       <table class="table table-striped projects">
+        <div class="card-tools">
+          {{-- <form action="/users">
+            <div class="input-group input-group-sm" style="width: 150px;">
+              <input type="text" name="search" class="form-control float-right" placeholder="Search">
+              <div class="input-group-append">
+              <button type="submit" class="btn btn-default">
+              <i class="fas fa-search"></i>
+              </button>
+              </div>
+              </div>
+          </form> --}}
           <thead>
+            <tr>
+              <th><input onkeyup="filterTable()" type="hidden"></th>
+              <th><input onkeyup="filterTable()" type="hidden"></th>
+              <th><div class="input-group input-group-sm" style="width: 150px;">
+                <input onkeyup="filterTable()" type="text" name="name" class="form-control float-right" placeholder="Search by name">
+                </div></th>
+                <th><div class="input-group input-group-sm" style="width: 150px;">
+                  <input onkeyup="filterTable()" type="text" name="name" class="form-control float-right" placeholder="Search by email">
+                  </div></th>
+                  <th><div class="input-group input-group-sm" style="width: 150px;">
+                    <input onkeyup="filterTable()" type="text" name="name" class="form-control float-right" placeholder="Search by group">
+                    </div></th>
+             
+
+          </tr>
               <tr>
                   <th style="width: 1%">
                       ID 
@@ -67,7 +96,8 @@
                       </a>
                       <br/>
                       <small>
-                        {{ $user->job_title }}
+                        
+                        <a  href="/users/?job_title={{ $user->job_title }}">{{ $user->job_title }}</a></span>
                       </small>
                   </td>
                   
@@ -79,7 +109,8 @@
                     
                 </td>
                   <td class="">
-                      <span class="badge badge-success">{{ $user->group_name }}</span>
+                      <span class="badge badge-success">
+                        <a class="text-light" href="/users/?group_name={{$user->group_name}}">{{ $user->group_name }}</a></span>
                   </td>
                   <td class="project-actions text-right">
                      

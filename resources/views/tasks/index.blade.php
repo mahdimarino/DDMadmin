@@ -1,4 +1,8 @@
-@extends('home')
+
+
+@extends($user->user_role === 'employee' ? 'staffhome' : 'home')
+
+
 @section('content')
 
 
@@ -21,8 +25,9 @@
     </section>
     
     <section class="content">
+        @foreach($tasks as $task)
     
-    <div class="card">
+    <div class="card m-2">
     
     <div class="card-body">
     <div class="row ">
@@ -34,9 +39,9 @@
     </div>
     <div class="row">
     <div class="col-12">
-    <h4>Recent Task</h4>
+    
    
-    @foreach($tasks as $task)
+    
     <div class="post clearfix">
     <div class="user-block">
     <img class="img-circle img-bordered-sm" src="../../dist/img/user7-128x128.jpg" alt="User Image">
@@ -55,16 +60,16 @@
     </p>
     
     </div>
-    @endforeach
+   
     
     </div>
     </div>
     </div>
    
     </div>
-    
+</div>
     </div>
-    
+    @endforeach
     </section>
     
    

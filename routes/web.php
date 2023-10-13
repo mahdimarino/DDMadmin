@@ -59,7 +59,7 @@ Route::get('/listing/{listing}/edit',[listingcontroller::class, 'edit'])->middle
 Route::put('/listing/{listing}/', [listingcontroller::class, 'update'])->middleware('auth');
 Route::delete('/listing/{listing}/', [listingcontroller::class, 'destroy'])->middleware('auth');
 route::get('/listing/{listing}', [listingcontroller::class, 'show'])->middleware('auth');
-
+Route::get('/task',[TaskController::class,'index'])->middleware('auth');
 Route::get('/register',[UserController::class,'create']);
 route::post('/users', [UserController::class, 'store']);
 Route::post('/logout',[UserController::class, 'logout']);
@@ -91,7 +91,7 @@ Route::get('/employeerequest',[RequestContoler::class,'index']);
 
 Route::get('/task/create',[TaskController::class,'create']);
 Route::post('/task',[TaskController::class,'store']);
-Route::get('/task',[TaskController::class,'index']);
+
 Route::get('/task/myTaskslist',[TaskController::class,'myTaskslist']);
 Route::delete('/task/{task}/', [TaskController::class, 'destroy']);
 Route::get('/task/{task}/edit',[TaskController::class,'edit']);
@@ -101,6 +101,8 @@ Route::get('/users', [UserController::class, 'index']);
 route::get('/users/{users}', [UserController::class, 'myProfile']);
 Route::get('/users/profile/{id}', [UserController::class, 'userProfile']);
 Route::get('/users/{users}/edit',[UserController::class,'edit']);
+
+
 
 });
 
@@ -122,8 +124,10 @@ Route::get('/employeerequest/create',[RequestContoler::class, 'create']);
 Route::post('employeerequest',[RequestContoler::class,'store']);
 Route::delete('/employeerequest/{employeerequest}/', [RequestContoler::class, 'destroy']);
 
+
+
 route::get('/users/{users}', [UserController::class, 'myProfile']);
-Route::get('/users/profile/{id}', [UserController::class, 'userProfile']);
+
 Route::get('/users/{users}/edit',[UserController::class,'edit']);
     
 });

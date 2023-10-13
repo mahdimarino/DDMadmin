@@ -59,4 +59,21 @@ class User extends Authenticatable
     public function tasks(){
         return $this-> hasMany(Task::class, 'user_id');
     }
+
+    public function scopeFilter($query,array $filters)
+    {
+        if($filters['group_name'] ?? false){
+            $query->where('group_name','like','%'. request('group_name') . '%');
+        }
+
+        if ($filters['job_title'] ?? false) {
+            $query->where('job_title', 'like', '%' . $filters['job_title'] . '%');
+        }
+    
+        
+       /*  if($filters['search'] ?? false){
+            $query->where('name','like','%'. request('search') . '%') ;
+            
+        } */
+       }
 }
