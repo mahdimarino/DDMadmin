@@ -11,6 +11,7 @@ use App\Http\Controllers\RequestContoler;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\listingcontroller;
 use App\Http\Controllers\productcontroller;
+use App\Http\Controllers\PerformanceReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,7 +51,7 @@ Route::get('/test', function () {
 
 route::get('/staffdashboard',[listingcontroller::class,'staffdashboard'])->middleware('auth');
 
-
+Route::get('/review/create', [PerformanceReviewController::class, 'create'])->middleware('auth');
 
 Route::get('/listing', [listingcontroller::class, 'index'])->middleware('auth');
 route::get('/listing/create',[listingcontroller::class,'create'])->middleware('auth');
@@ -104,6 +105,7 @@ Route::get('/users/{users}/edit',[UserController::class,'edit']);
 
 
 
+
 });
 
 // Employee Dashboard Routes
@@ -123,6 +125,7 @@ Route::get('/employeerequest/myRequests',[RequestContoler::class,'myRequests']);
 Route::get('/employeerequest/create',[RequestContoler::class, 'create']);
 Route::post('employeerequest',[RequestContoler::class,'store']);
 Route::delete('/employeerequest/{employeerequest}/', [RequestContoler::class, 'destroy']);
+
 
 
 
