@@ -52,6 +52,11 @@ Route::get('/test', function () {
 route::get('/staffdashboard',[listingcontroller::class,'staffdashboard'])->middleware('auth');
 
 Route::get('/review/create', [PerformanceReviewController::class, 'create'])->middleware('auth');
+route::post('/performancereview', [PerformanceReviewController::class, 'store'])->middleware('auth');
+Route::get('/performancereview', [PerformanceReviewController::class, 'index'])->middleware('auth');
+Route::get('/performancereview/{review}/edit',[PerformanceReviewController::class,'edit'])->middleware('auth');
+Route::put('/performancereview/{review}/', [PerformanceReviewController::class, 'update'])->middleware('auth');
+route::get('/performancereview/{review}', [PerformanceReviewController::class, 'reviewToPrint'])->middleware('auth');
 
 Route::get('/listing', [listingcontroller::class, 'index'])->middleware('auth');
 route::get('/listing/create',[listingcontroller::class,'create'])->middleware('auth');

@@ -8,6 +8,7 @@ use App\Models\Report;
 use App\Models\Listing;
 use App\Models\Request;
 use App\Models\Employeerequest;
+use App\Models\PerformanceReview;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -54,6 +55,9 @@ class User extends Authenticatable
 
     public function employeerequests(){
         return $this-> hasMany(Employeerequest::class, 'user_id');
+    }
+    public function performancereviews(){
+        return $this-> hasMany(PerformanceReview::class, 'user_id');
     }
 
     public function tasks(){

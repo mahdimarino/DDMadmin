@@ -1,4 +1,4 @@
-@extends('staffhome')
+@extends('home')
 @section('content')
 
 
@@ -42,35 +42,37 @@
     <div class="container-fluid">
         <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">Enter The New Info</h3>
+              <h3 class="card-title">Feel the List bellow and Submit it</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form class="form-horizontal">
+            <form action="/performancereview" method="post" class="form-horizontal">
+                @csrf
+            
               <div class="card-body">
                 
                 <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-2 col-form-label">Employee Name</label>
                     <div class="col-sm-5">
-                      <input type="text" name="email" class="form-control" id="inputEmail3" placeholder="Full name here">
+                      <input type="text" name="name" class="form-control" id="inputEmail3" placeholder="Full name here">
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-2 col-form-label">Review Period</label>
                     <div class="col-sm-5">
-                      <input type="text" name="phone_number" class="form-control" id="inputEmail3" placeholder="Enter Review Period">
+                      <input type="text" name="review_period" class="form-control" id="inputEmail3" placeholder="Enter Review Period">
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-2 col-form-label">Reviewer</label>
                     <div class="col-sm-5">
-                      <input type="text" name="job_title" class="form-control" id="inputEmail3" placeholder="Reviewer">
+                      <input type="text" name="reviewer" class="form-control" id="inputEmail3" placeholder="Reviewer">
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-2 col-form-label">Job Title </label>
                     <div class="col-sm-5">
-                        <select name="group_name" class="form-control" required>
+                        <select name="job_title" class="form-control" required>
                             <option value="" disabled selected>Select Job Title</option>
                             <option value="Group 1">Group 1</option>
                             <option value="Group 2">Group 2</option>
@@ -90,15 +92,16 @@
                   <div class="form-group row">
                     <label for="inputPassword3" class="col-sm-2 col-form-label">Date of Review</label>
                     <div class="col-sm-5">
-                      <input type="text" name="Date of Review" class="form-control" id="inputPassword3" placeholder="Password">
+                      <input type="date" name="date_of_review" class="form-control" id="inputPassword3" placeholder="Password">
                     </div>
                   </div>
                   <hr>
                   <div class="row">
                     <div class="col-12">
                     <div class="card">
-                    <div class="card-header">
-                    <h3 class="card-title">Expandable Table</h3>
+                    <div class="card-header text-center px-auto">
+                    <h4 class=" text-center mx-auto">DDM Rating Scale
+                    </h4>
                     </div>
                     
                     <div class="card-body">
@@ -161,29 +164,147 @@
                     
                     </div>
                     </div>
+{{-- <h3 class="mt-5">GOALS AND OBJECTIVES</h3>
+<label for="inputEmail3" class="col-sm-9 col-form-label">List a minimum of three goals/objectives for the next 12 months. </label>
+
+<div class="form-group row">
+    <label for="inputEmail3" class=" col-form-label">1.</label>
+    <div class="col-sm-8">
+        <input type="text" name="goal1" class="form-control" id="inputEmail3" placeholder="Write your goals/objectives here ....">
+      </div>
+      <div class="col-sm-3">
+          <select name="achievedornot1" class="form-control" required>
+              <option value="" disabled selected>Achieved / Not Achieved</option>
+              <option value="Achieved">Achieved</option>
+              <option value="Not Achieved">Not Achieved</option>
+              
+          </select>     </div>
+          
+  
+  </div>
+  
+  <div class="form-group row">
+    <label for="inputPassword3" class="col-sm-2 col-form-label">Comment</label>
+    <div class="col-sm-8">
+    <textarea type="text" name="goal1comment" cols="3" rows="3" class="form-control"  placeholder="Write your comment here ..."></textarea>
+    </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputEmail3" class=" col-form-label">2.</label>
+        <div class="col-sm-8">
+            <input type="text" name="goal2" class="form-control" id="inputEmail3" placeholder="Write your goals/objectives here ....">
+          </div>
+          <div class="col-sm-3">
+              <select name="achievedornot2" class="form-control" required>
+                  <option value="" disabled selected>Achieved / Not Achieved</option>
+                  <option value="Achieved">Achieved</option>
+                  <option value="Not Achieved">Not Achieved</option>
+                  
+              </select>     </div>
+              
+      
+      </div>
+      
+      <div class="form-group row">
+        <label for="inputPassword3" class="col-sm-2 col-form-label">Comment</label>
+        <div class="col-sm-8">
+        <textarea type="text" name="goal2comment" cols="3" rows="3" class="form-control"  placeholder="Write your comment here ..."></textarea>
+        </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputEmail3" class=" col-form-label">3.</label>
+            <div class="col-sm-8">
+                <input type="text" name="goal3" class="form-control" id="inputEmail3" placeholder="Write your goals/objectives here ....">
+              </div>
+              <div class="col-sm-3">
+                  <select name="achievedornot3" class="form-control" required>
+                      <option value="" disabled selected>Achieved / Not Achieved</option>
+                      <option value="Achieved">Achieved</option>
+                      <option value="Not Achieved">Not Achieved</option>
+                      
+                  </select>     </div>
+                  
+          
+          </div>
+          
+          <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Comment</label>
+            <div class="col-sm-8">
+            <textarea type="text" name="goal3comment" cols="3" rows="3" class="form-control"  placeholder="Write your comment here ..."></textarea>
+            </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputEmail3" class=" col-form-label">4.</label>
+                <div class="col-sm-8">
+                    <input type="text" name="goal4" class="form-control" id="inputEmail3" placeholder="Write your goals/objectives here ....">
+                  </div>
+                  <div class="col-sm-3">
+                      <select name="achievedornot4" class="form-control" required>
+                          <option value="" disabled selected>Achieved / Not Achieved</option>
+                          <option value="Achieved">Achieved</option>
+                          <option value="Not Achieved">Not Achieved</option>
+                          
+                      </select>     </div>
+                      
+              
+              </div>
+              
+              <div class="form-group row">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Comment</label>
+                <div class="col-sm-8">
+                <textarea type="text" name="goal4comment" cols="3" rows="3" class="form-control"  placeholder="Write your comment here ..."></textarea>
+                </div>
+                </div>
                 <div class="form-group row">
+                    <label for="inputEmail3" class=" col-form-label">5.</label>
+                    <div class="col-sm-8">
+                        <input type="text" name="goal5" class="form-control" id="inputEmail3" placeholder="Write your goals/objectives here ....">
+                      </div>
+                      <div class="col-sm-3">
+                          <select name="achievedornot5" class="form-control" required>
+                              <option value="" disabled selected>Achieved / Not Achieved</option>
+                              <option value="Achieved">Achieved</option>
+                              <option value="Not Achieved">Not Achieved</option>
+                              
+                          </select>     </div>
+                          
+                  
+                  </div>
+                  
+                  <div class="form-group row">
+                    <label for="inputPassword3" class="col-sm-2 col-form-label">Comment</label>
+                    <div class="col-sm-8">
+                    <textarea type="text" name="goal5comment" cols="3" rows="3" class="form-control"  placeholder="Write your comment here ..."></textarea>
+                    </div>
+                    </div> --}}
+                      <hr>
+                      <div style="text-align: center" class="w-100 text-centre"><h3 class="mt-5 ">COLLABORATIVE ASSESSMENT</h3>
+                        <label for="inputEmail3" class="col-sm-9 col-form-label">Ratings Definition : <span class="mx-3"> 5 = Always </span> <span class="mx-3"> 4 = Often </span> <span class="mx-3"> 3 = Sometimes </span> <span class="mx-3"> 2 = Occasionally </span> <span class="mx-3"> 1 = Never </span> </label></div>
+                      
+                <hr>
+                      <div class="form-group row">
 
                   <label for="inputEmail3" class="col-sm-9 col-form-label">1. Sets an example for high-quality work among his or
                     her co-workers </label>
                     <div class="col-sm-3">
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1">
+                            <input class="form-check-input" type="radio" name="answer1_personalrate" id="inlineRadio1" value="1">
                             <label class="form-check-label" for="inlineRadio1">1</label>
                           </div>
                           <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2">
+                            <input class="form-check-input" type="radio" name="answer1_personalrate" id="inlineRadio2" value="2">
                             <label class="form-check-label" for="inlineRadio2">2</label>
                           </div>
                           <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="3">
+                            <input class="form-check-input" type="radio" name="answer1_personalrate" id="inlineRadio2" value="3">
                             <label class="form-check-label" for="inlineRadio2">3</label>
                           </div>
                           <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="4">
+                            <input class="form-check-input" type="radio" name="answer1_personalrate" id="inlineRadio2" value="4">
                             <label class="form-check-label" for="inlineRadio2">4</label>
                           </div>
                           <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="5">
+                            <input class="form-check-input" type="radio" name="answer1_personalrate" id="inlineRadio2" value="5">
                             <label class="form-check-label" for="inlineRadio2">5</label>
                           </div>
                     </div>
@@ -191,7 +312,7 @@
                 <div class="form-group row">
                     <label for="inputPassword3" class="col-sm-2 col-form-label">Comment</label>
                     <div class="col-sm-10">
-                    <textarea type="text" name="content" cols="3" rows="3" class="form-control"  placeholder="Write your comment here ..."></textarea>
+                    <textarea type="text" name="answer1_personalcomment" cols="3" rows="3" class="form-control"  placeholder="Write your comment here ..."></textarea>
                     </div>
                     </div>
                 <hr>
@@ -199,23 +320,23 @@
                     <label for="inputEmail3" class="col-sm-9 col-form-label">2. Consistently produces thorough and error-free work </label>
                     <div class="col-sm-3">
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1">
+                            <input class="form-check-input" type="radio" name="answer2_personalrate" id="inlineRadio1" value="1">
                             <label class="form-check-label" for="inlineRadio1">1</label>
                           </div>
                           <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2">
+                            <input class="form-check-input" type="radio" name="answer2_personalrate" id="inlineRadio2" value="2">
                             <label class="form-check-label" for="inlineRadio2">2</label>
                           </div>
                           <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="3">
+                            <input class="form-check-input" type="radio" name="answer2_personalrate" id="inlineRadio2" value="3">
                             <label class="form-check-label" for="inlineRadio2">3</label>
                           </div>
                           <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="4">
+                            <input class="form-check-input" type="radio" name="answer2_personalrate" id="inlineRadio2" value="4">
                             <label class="form-check-label" for="inlineRadio2">4</label>
                           </div>
                           <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="5">
+                            <input class="form-check-input" type="radio" name="answer2_personalrate" id="inlineRadio2" value="5">
                             <label class="form-check-label" for="inlineRadio2">5</label>
                           </div>
                     </div>
@@ -223,7 +344,7 @@
                   <div class="form-group row">
                     <label for="inputPassword3" class="col-sm-2 col-form-label">Comment</label>
                     <div class="col-sm-10">
-                    <textarea type="text" name="content" cols="3" rows="3" class="form-control"  placeholder="Write your comment here ..."></textarea>
+                    <textarea type="text" name="answer2_personalcomment" cols="3" rows="3" class="form-control"  placeholder="Write your comment here ..."></textarea>
                     </div>
                     </div>
                   <hr>
@@ -232,23 +353,23 @@
                         quality of their work  </label>
                         <div class="col-sm-3">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1">
+                                <input class="form-check-input" type="radio" name="answer3_personalrate" id="inlineRadio1" value="1">
                                 <label class="form-check-label" for="inlineRadio1">1</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2">
+                                <input class="form-check-input" type="radio" name="answer3_personalrate" id="inlineRadio2" value="2">
                                 <label class="form-check-label" for="inlineRadio2">2</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="3">
+                                <input class="form-check-input" type="radio" name="answer3_personalrate" id="inlineRadio2" value="3">
                                 <label class="form-check-label" for="inlineRadio2">3</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="4">
+                                <input class="form-check-input" type="radio" name="answer3_personalrate" id="inlineRadio2" value="4">
                                 <label class="form-check-label" for="inlineRadio2">4</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="5">
+                                <input class="form-check-input" type="radio" name="answer3_personalrate" id="inlineRadio2" value="5">
                                 <label class="form-check-label" for="inlineRadio2">5</label>
                               </div>
                         </div>
@@ -256,7 +377,7 @@
                   <div class="form-group row">
                     <label for="inputPassword3" class="col-sm-2 col-form-label">Comment</label>
                     <div class="col-sm-10">
-                    <textarea type="text" name="content" cols="3" rows="3" class="form-control"  placeholder="Write your comment here ..."></textarea>
+                    <textarea type="text" name="answer3_personalcomment" cols="3" rows="3" class="form-control"  placeholder="Write your comment here ..."></textarea>
                     </div>
                     </div>
                   <hr>
@@ -265,23 +386,23 @@
                         constructively </label>
                         <div class="col-sm-3">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1">
+                                <input class="form-check-input" type="radio" name="answer4_personalrate" id="inlineRadio1" value="1">
                                 <label class="form-check-label" for="inlineRadio1">1</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2">
+                                <input class="form-check-input" type="radio" name="answer4_personalrate" id="inlineRadio2" value="2">
                                 <label class="form-check-label" for="inlineRadio2">2</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="3">
+                                <input class="form-check-input" type="radio" name="answer4_personalrate" id="inlineRadio2" value="3">
                                 <label class="form-check-label" for="inlineRadio2">3</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="4">
+                                <input class="form-check-input" type="radio" name="answer4_personalrate" id="inlineRadio2" value="4">
                                 <label class="form-check-label" for="inlineRadio2">4</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="5">
+                                <input class="form-check-input" type="radio" name="answer4_personalrate" id="inlineRadio2" value="5">
                                 <label class="form-check-label" for="inlineRadio2">5</label>
                               </div>
                         </div>
@@ -289,7 +410,7 @@
                   <div class="form-group row">
                     <label for="inputPassword3" class="col-sm-2 col-form-label">Comment</label>
                     <div class="col-sm-10">
-                    <textarea type="text" name="content" cols="3" rows="3" class="form-control"  placeholder="Write your comment here ..."></textarea>
+                    <textarea type="text" name="answer4_personalcomment" cols="3" rows="3" class="form-control"  placeholder="Write your comment here ..."></textarea>
                     </div>
                     </div>
                   <hr>
@@ -298,23 +419,23 @@
                         and in writing </label>
                         <div class="col-sm-3">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1">
+                                <input class="form-check-input" type="radio" name="answer5_personalrate" id="inlineRadio1" value="1">
                                 <label class="form-check-label" for="inlineRadio1">1</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2">
+                                <input class="form-check-input" type="radio" name="answer5_personalrate" id="inlineRadio2" value="2">
                                 <label class="form-check-label" for="inlineRadio2">2</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="3">
+                                <input class="form-check-input" type="radio" name="answer5_personalrate" id="inlineRadio2" value="3">
                                 <label class="form-check-label" for="inlineRadio2">3</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="4">
+                                <input class="form-check-input" type="radio" name="answer5_personalrate" id="inlineRadio2" value="4">
                                 <label class="form-check-label" for="inlineRadio2">4</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="5">
+                                <input class="form-check-input" type="radio" name="answer5_personalrate" id="inlineRadio2" value="5">
                                 <label class="form-check-label" for="inlineRadio2">5</label>
                               </div>
                         </div>
@@ -322,7 +443,7 @@
                   <div class="form-group row">
                     <label for="inputPassword3" class="col-sm-2 col-form-label">Comment</label>
                     <div class="col-sm-10">
-                    <textarea type="text" name="content" cols="3" rows="3" class="form-control"  placeholder="Write your comment here ..."></textarea>
+                    <textarea type="text" name="answer5_personalcomment" cols="3" rows="3" class="form-control"  placeholder="Write your comment here ..."></textarea>
                     </div>
                     </div>
                   <hr>
@@ -331,23 +452,23 @@
                         morale </label>
                         <div class="col-sm-3">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1">
+                                <input class="form-check-input" type="radio" name="answer6_personalrate" id="inlineRadio1" value="1">
                                 <label class="form-check-label" for="inlineRadio1">1</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2">
+                                <input class="form-check-input" type="radio" name="answer6_personalrate" id="inlineRadio2" value="2">
                                 <label class="form-check-label" for="inlineRadio2">2</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="3">
+                                <input class="form-check-input" type="radio" name="answer6_personalrate" id="inlineRadio2" value="3">
                                 <label class="form-check-label" for="inlineRadio2">3</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="4">
+                                <input class="form-check-input" type="radio" name="answer6_personalrate" id="inlineRadio2" value="4">
                                 <label class="form-check-label" for="inlineRadio2">4</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="5">
+                                <input class="form-check-input" type="radio" name="answer6_personalrate" id="inlineRadio2" value="5">
                                 <label class="form-check-label" for="inlineRadio2">5</label>
                               </div>
                         </div>
@@ -355,32 +476,32 @@
                   <div class="form-group row">
                     <label for="inputPassword3" class="col-sm-2 col-form-label">Comment</label>
                     <div class="col-sm-10">
-                    <textarea type="text" name="content" cols="3" rows="3" class="form-control"  placeholder="Write your comment here ..."></textarea>
+                    <textarea type="text" name="answer6_personalcomment" cols="3" rows="3" class="form-control"  placeholder="Write your comment here ..."></textarea>
                     </div>
                     </div>
-                  <hr>1
+                  <hr>
                   <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-9 col-form-label">7. Can be relied upon to complete tasks accurately
                     </label>
                     <div class="col-sm-3">
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1">
+                            <input class="form-check-input" type="radio" name="answer7_personalrate" id="inlineRadio1" value="1">
                             <label class="form-check-label" for="inlineRadio1">1</label>
                           </div>
                           <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2">
+                            <input class="form-check-input" type="radio" name="answer7_personalrate" id="inlineRadio2" value="2">
                             <label class="form-check-label" for="inlineRadio2">2</label>
                           </div>
                           <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="3">
+                            <input class="form-check-input" type="radio" name="answer7_personalrate" id="inlineRadio2" value="3">
                             <label class="form-check-label" for="inlineRadio2">3</label>
                           </div>
                           <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="4">
+                            <input class="form-check-input" type="radio" name="answer7_personalrate" id="inlineRadio2" value="4">
                             <label class="form-check-label" for="inlineRadio2">4</label>
                           </div>
                           <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="5">
+                            <input class="form-check-input" type="radio" name="answer7_personalrate" id="inlineRadio2" value="5">
                             <label class="form-check-label" for="inlineRadio2">5</label>
                           </div>
                     </div>
@@ -388,7 +509,7 @@
                   <div class="form-group row">
                     <label for="inputPassword3" class="col-sm-2 col-form-label">Comment</label>
                     <div class="col-sm-10">
-                    <textarea type="text" name="content" cols="3" rows="3" class="form-control"  placeholder="Write your comment here ..."></textarea>
+                    <textarea type="text" name="answer7_personalcomment" cols="3" rows="3" class="form-control"  placeholder="Write your comment here ..."></textarea>
                     </div>
                     </div>
                   <hr>
@@ -398,23 +519,23 @@
                          </label>
                          <div class="col-sm-3">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1">
+                                <input class="form-check-input" type="radio" name="answer8_personalrate" id="inlineRadio1" value="1">
                                 <label class="form-check-label" for="inlineRadio1">1</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2">
+                                <input class="form-check-input" type="radio" name="answer8_personalrate" id="inlineRadio2" value="2">
                                 <label class="form-check-label" for="inlineRadio2">2</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="3">
+                                <input class="form-check-input" type="radio" name="answer8_personalrate" id="inlineRadio2" value="3">
                                 <label class="form-check-label" for="inlineRadio2">3</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="4">
+                                <input class="form-check-input" type="radio" name="answer8_personalrate" id="inlineRadio2" value="4">
                                 <label class="form-check-label" for="inlineRadio2">4</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="5">
+                                <input class="form-check-input" type="radio" name="answer8_personalrate" id="inlineRadio2" value="5">
                                 <label class="form-check-label" for="inlineRadio2">5</label>
                               </div>
                         </div>
@@ -422,7 +543,7 @@
                   <div class="form-group row">
                     <label for="inputPassword3" class="col-sm-2 col-form-label">Comment</label>
                     <div class="col-sm-10">
-                    <textarea type="text" name="content" cols="3" rows="3" class="form-control"  placeholder="Write your comment here ..."></textarea>
+                    <textarea type="text" name="answer8_personalcomment" cols="3" rows="3" class="form-control"  placeholder="Write your comment here ..."></textarea>
                     </div>
                     </div>
                   <hr>
@@ -432,23 +553,23 @@
                          </label>
                          <div class="col-sm-3">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1">
+                                <input class="form-check-input" type="radio" name="answer9_personalrate" id="inlineRadio1" value="1">
                                 <label class="form-check-label" for="inlineRadio1">1</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2">
+                                <input class="form-check-input" type="radio" name="answer9_personalrate" id="inlineRadio2" value="2">
                                 <label class="form-check-label" for="inlineRadio2">2</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="3">
+                                <input class="form-check-input" type="radio" name="answer9_personalrate" id="inlineRadio2" value="3">
                                 <label class="form-check-label" for="inlineRadio2">3</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="4">
+                                <input class="form-check-input" type="radio" name="answer9_personalrate" id="inlineRadio2" value="4">
                                 <label class="form-check-label" for="inlineRadio2">4</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="5">
+                                <input class="form-check-input" type="radio" name="answer9_personalrate" id="inlineRadio2" value="5">
                                 <label class="form-check-label" for="inlineRadio2">5</label>
                               </div>
                         </div>
@@ -456,7 +577,7 @@
                   <div class="form-group row">
                     <label for="inputPassword3" class="col-sm-2 col-form-label">Comment</label>
                     <div class="col-sm-10">
-                    <textarea type="text" name="content" cols="3" rows="3" class="form-control"  placeholder="Write your comment here ..."></textarea>
+                    <textarea type="text" name="answer9_personalcomment" cols="3" rows="3" class="form-control"  placeholder="Write your comment here ..."></textarea>
                     </div>
                     </div>
                   <hr>
@@ -465,23 +586,23 @@
                         for our development and achievements </label>
                         <div class="col-sm-3">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1">
+                                <input class="form-check-input" type="radio" name="answer10_personalrate" id="inlineRadio1" value="1">
                                 <label class="form-check-label" for="inlineRadio1">1</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2">
+                                <input class="form-check-input" type="radio" name="answer10_personalrate" id="inlineRadio2" value="2">
                                 <label class="form-check-label" for="inlineRadio2">2</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="3">
+                                <input class="form-check-input" type="radio" name="answer10_personalrate" id="inlineRadio2" value="3">
                                 <label class="form-check-label" for="inlineRadio2">3</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="4">
+                                <input class="form-check-input" type="radio" name="answer10_personalrate" id="inlineRadio2" value="4">
                                 <label class="form-check-label" for="inlineRadio2">4</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="5">
+                                <input class="form-check-input" type="radio" name="answer10_personalrate" id="inlineRadio2" value="5">
                                 <label class="form-check-label" for="inlineRadio2">5</label>
                               </div>
                         </div>
@@ -489,7 +610,7 @@
                   <div class="form-group row">
                     <label for="inputPassword3" class="col-sm-2 col-form-label">Comment</label>
                     <div class="col-sm-10">
-                    <textarea type="text" name="content" cols="3" rows="3" class="form-control"  placeholder="Write your comment here ..."></textarea>
+                    <textarea type="text" name="answer10_personalcomment" cols="3" rows="3" class="form-control"  placeholder="Write your comment here ..."></textarea>
                     </div>
                     </div>
                   <hr>

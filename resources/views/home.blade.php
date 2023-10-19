@@ -335,6 +335,14 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="/performancereview" class="nav-link ">
+              <i class="nav-icon fas fa-list"></i>
+              <p>Performance Reviews 
+                {{-- <span class="badge badge-info right">2</span> --}}
+              </p>
+            </a>
+          </li>
           
           <li  class=" text-light">
             <form method="post" action="/logout">

@@ -31,7 +31,7 @@ class ReportController extends Controller
             'content'=>'required',
             
 
-            
+    
         ]);
 
         $formFields['user_id'] = auth()-> id();
