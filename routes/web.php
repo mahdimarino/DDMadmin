@@ -2,6 +2,7 @@
 
 use App\Models\Listing;
 use App\Models\Product;
+use App\Models\Profilepic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
@@ -57,6 +58,11 @@ Route::get('/performancereview', [PerformanceReviewController::class, 'index'])-
 Route::get('/performancereview/{review}/edit',[PerformanceReviewController::class,'edit'])->middleware('auth');
 Route::put('/performancereview/{review}/', [PerformanceReviewController::class, 'update'])->middleware('auth');
 route::get('/performancereview/{review}', [PerformanceReviewController::class, 'reviewToPrint'])->middleware('auth');
+Route::get('/review/ranking', [PerformanceReviewController::class, 'ranking'])->middleware('auth');
+
+
+Route::get('/profilepic/create', [Profilepic::class, 'create'])->middleware('auth');
+route::post('/profilepic', [Profilepic::class, 'store'])->middleware('auth');
 
 Route::get('/listing', [listingcontroller::class, 'index'])->middleware('auth');
 route::get('/listing/create',[listingcontroller::class,'create'])->middleware('auth');
@@ -68,7 +74,7 @@ route::get('/listing/{listing}', [listingcontroller::class, 'show'])->middleware
 Route::get('/task',[TaskController::class,'index'])->middleware('auth');
 Route::get('/register',[UserController::class,'create']);
 route::post('/users', [UserController::class, 'store']);
-Route::post('/logout',[UserController::class, 'logout']);
+Route::post('/logout',[UserController::class, 'logout'])->middleware('auth');
 Route::get('/login',[UserController::class, 'login'])->name('login');
 Route::post('/users/authenticate',[LoginController::class,'authenticate']);
 
@@ -81,7 +87,7 @@ route::get('products/products/{product}',[productcontroller::class,'show']);
 
 
 // Route::post('/users/authenticate',[UserController::class,'authenticate']);
- 
+Route::put('/users/{user}', [UserController::class, 'update'])->middleware('auth');
 
 
  // Admin Dashboard Routes
@@ -107,6 +113,7 @@ Route::get('/users', [UserController::class, 'index']);
 route::get('/users/{users}', [UserController::class, 'myProfile']);
 Route::get('/users/profile/{id}', [UserController::class, 'userProfile']);
 Route::get('/users/{users}/edit',[UserController::class,'edit']);
+
 
 
 

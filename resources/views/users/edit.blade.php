@@ -8,20 +8,6 @@
 <section class="content-header">
 
 
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
     <div class="container-fluid">
     <div class="row mb-2">
     <div class="col-sm-6">
@@ -45,40 +31,48 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form class="form-horizontal">
-              <div class="card-body">
+            <form  action="/users/{{auth()->user()->id}}" method="POST" enctype="multipart/form-data">
+              @csrf
+              @method('PUT') <div class="card-body">
+                  <div class="form-group row">
+                  <label for="inputEmail3" class="col-sm-2 col-form-label">image</label>
+                  <div class="col-sm-10">
+                    <input type="file" name="logo"  class="form-control" value="{{auth()->user()->logo}}"  placeholder="image">
+                  </div>
+                </div>  
                 <div class="form-group row">
                   <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
                   <div class="col-sm-10">
-                    <input type="email" name="email" class="form-control" id="inputEmail3" placeholder="Email">
+                    <input type="email" name="email" class="form-control" value="{{auth()->user()->email}}"  id="inputEmail3" placeholder="Email">
                   </div>
                 </div>
-                <div class="form-group row">
+               <div class="form-group row">
                   <label for="inputEmail3" class="col-sm-2 col-form-label">Phone Number</label>
                   <div class="col-sm-10">
-                    <input type="text" name="phone_number" class="form-control" id="inputEmail3" placeholder="Phone Number">
+                    <input type="text" name="phone_number" class="form-control" value="{{auth()->user()->phone_number}}" id="inputEmail3" placeholder="Phone Number">
                   </div>
-                </div>
-                <div class="form-group row">
+                </div> 
+                {{-- <div class="form-group row">
                   <label for="inputEmail3" class="col-sm-2 col-form-label">Job Title</label>
                   <div class="col-sm-10">
-                    <input type="text" name="job_title" class="form-control" id="inputEmail3" placeholder="Job Title">
+                    <input type="text" name="job_title" class="form-control" value="{{auth()->user()->job_title}}" id="inputEmail3" placeholder="Job Title">
+                  </div>
+                </div> --}}
+                <div class="form-group row">
+                  <label for="inputEmail3" class="col-sm-2 col-form-label">Location</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="location" class="form-control" value="{{auth()->user()->location}}" id="inputEmail3" placeholder="Location">
                   </div>
                 </div>
-                <div class="form-group row">
+                {{-- <div class="form-group row">
                   <label for="inputEmail3" class="col-sm-2 col-form-label">Group Name</label>
                   <div class="col-sm-10">
-                    <input type="text" name="group_name" class="form-control" id="inputEmail3" placeholder="Group Name">
+                    <input type="text" name="group_name" class="form-control" value="{{auth()->user()->group_name}}" id="inputEmail3" placeholder="Group Name">
                   </div>
-                </div>
-                <div class="form-group row">
-                  <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
-                  <div class="col-sm-10">
-                    <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Password">
-                  </div>
-                </div>
+                </div>  --}}
                 
-              </div>
+                
+             
               <!-- /.card-body -->
               <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Submit</button>

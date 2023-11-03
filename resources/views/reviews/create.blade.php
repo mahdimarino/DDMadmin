@@ -1,4 +1,4 @@
-@extends('home')
+@extends(auth()->user()->user_role === 'employee' ? 'staffhome' : 'home')
 @section('content')
 
 
@@ -54,7 +54,7 @@
                 <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-2 col-form-label">Employee Name</label>
                     <div class="col-sm-5">
-                      <input type="text" name="name" class="form-control" id="inputEmail3" placeholder="Full name here">
+                      <input type="text" name="name" value="{{auth()->user()->name}}" class="form-control" id="inputEmail3" placeholder="Full name here">
                     </div>
                   </div>
                   <div class="form-group row">
@@ -66,7 +66,16 @@
                   <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-2 col-form-label">Reviewer</label>
                     <div class="col-sm-5">
-                      <input type="text" name="reviewer" class="form-control" id="inputEmail3" placeholder="Reviewer">
+                      <select name="reviewer" class="form-control" required>
+                        <option value="" disabled selected>Select Reviewer name</option>
+                        @foreach($users as $user) 
+                        @if ($user->job_title == 'Account Manager')
+                        <option value="{{$user->name}}">{{$user->name}}</option>
+                        @else
+                       
+                        @endif
+                        @endforeach 
+                    </select>
                     </div>
                   </div>
                   <div class="form-group row">
@@ -74,19 +83,24 @@
                     <div class="col-sm-5">
                         <select name="job_title" class="form-control" required>
                             <option value="" disabled selected>Select Job Title</option>
-                            <option value="Group 1">Group 1</option>
-                            <option value="Group 2">Group 2</option>
-                            <option value="Group 3">Group 3</option>
+                            <option value="Group 1">Account Executive</option>
+                            <option value="Group 2"> Account Manager</option>
+                            
                         </select>     </div>
                   </div>
                   <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-2 col-form-label">Team name </label>
                     <div class="col-sm-5">
                         <select name="group_name" class="form-control" required>
-                            <option value="" disabled selected>Select Team name</option>
-                            <option value="Group 1">Group 1</option>
-                            <option value="Group 2">Group 2</option>
-                            <option value="Group 3">Group 3</option>
+                            
+                            <option value="" disabled selected>Select a Group</option>
+          <option value="RevLine Marketing">RevLine Marketing</option>
+          <option value="US, EMEA & APAC - Lead2Pipeline Inc.">US, EMEA & APAC - Lead2Pipeline Inc.</option>
+          <option value="DemandSkill">DemandSkill</option>
+          <option value="gggIdentify Pulse">Identify Pulse</option>
+          <option value="Arista Demand">Arista Demand</option>
+          <option value="2XPand">2XPand</option>
+          <option value="Advance B2B Media">Advance B2B Media</option>
                         </select>     </div>
                   </div>
                   <div class="form-group row">

@@ -44,20 +44,20 @@
     
     <div class="post clearfix">
     <div class="user-block">
-    <img class="img-circle img-bordered-sm" src="../../dist/img/user7-128x128.jpg" alt="User Image">
+    <img class="img-circle img-bordered-sm" src="{{$task->user->logo ? asset('storage/' . $task->user->logo) : asset('/dist/img/download.png')}}" alt="User Image">
     <span class="username">
     <a href="#">{{ $task->user_name }}</a>
     </span>
-    <span class="description"> {{ $task->user->job_title }}</span>
+    <span class="description"> {{ $task->user->job_title }} - {{ $task->updated_at }}</span>
    
     </div>
+   
     
     <p>
+        <b>{{ $task->title }}</b><br>
         {{ $task->content }}
     </p>
-    <p>
-    <a href="#" class="link-black text-sm"><i class="fas fa-link mr-1"></i> {{ $task->title }}</a>
-    </p>
+    
     
     </div>
    

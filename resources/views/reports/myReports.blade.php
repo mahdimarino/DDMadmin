@@ -39,7 +39,7 @@
     
     <div class="post clearfix">
     <div class="user-block">
-    <img class="img-circle img-bordered-sm" src="{{asset('/dist/img/download.png')}}" alt="User Image">
+    <img class="img-circle img-bordered-sm" src="{{auth()->user()->logo ? asset('storage/' . auth()->user()->logo) : asset('/dist/img/download.png')}}" alt="User Image">
     <span class="username">
     <a href="#">{{ $report->user_name }}</a>
     <a class="float-right btn-tool" style="color: blue" href="/report/{{$report->id}}/edit">
@@ -55,16 +55,17 @@
         </button>
     </form>
     </span>
-    <span class="description">{{ $report->user->job_title }}</span>
+    <span class="description">{{ $report->user->job_title }} - {{ $report->created_at }}</span>
     
     </div>
     {{-- <h4>{{ $report->title }}</h4> --}}
     <p>
+        <b>{{ $report->title }}</b><br>
         {{ $report->content }}
     </p>
-    <p>
+    {{-- <p>
     <a href="#" class="link-black text-sm"><i class="fas fa-link mr-1"></i> Visit the Link</a>
-    </p>
+    </p> --}}
     
     </div>
    

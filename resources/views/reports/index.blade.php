@@ -39,20 +39,19 @@
     
     <div class="post clearfix">
     <div class="user-block">
-    <img class="img-circle img-bordered-sm" src="../../dist/img/user7-128x128.jpg" alt="User Image">
+    <img class="img-circle img-bordered-sm" src="{{$report->user->logo ? asset('storage/' . $report->user->logo) : asset('/dist/img/download.png')}}" alt="User Image">
     <span class="username">
     <a href="#">{{ $report->user_name }}</a>
     </span>
-    <span class="description">Sent you a message - 3 days ago</span>
+    <span class="description">{{ $report->user->job_title }} - {{ $report->created_at }}</span>
    
     </div>
     
     <p>
+        <b>{{ $report->title }}</b><br>
         {{ $report->content }}
     </p>
-    <p>
-    <a href="#" class="link-black text-sm"><i class="fas fa-link mr-1"></i> {{ $report->title }}</a>
-    </p>
+   
     
     </div>
 </div>

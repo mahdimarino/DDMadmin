@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AdminLTE 3 | Dashboard</title>
@@ -175,7 +176,7 @@
                 </tr>
                 
                 
-                
+               
                     
                         
                
@@ -214,8 +215,9 @@
                             <td>1. Sets an example for high-quality work among his or
                                 her co-workers  </td>
                             <td class="text-center">{{$review->answer1_personalrate}}</td>
-                            <td class="text-center"> {{$review->answer1_seniormanagerrate}}</td>
+                            
                             <td class="text-center"> {{$review->answer1_linemanagerrate}}</td>
+                            <td class="text-center"> {{$review->answer1_seniormanagerrate}}</td>
                             </tr>               
                             </tbody>
                             </table>
@@ -253,8 +255,9 @@
                                 
                                 <td>2. Consistently produces thorough and error-free work  </td>
                                 <td class="text-center">{{$review->answer2_personalrate}}</td>
-                                <td class="text-center"> {{$review->answer2_seniormanagerrate}}</td>
+                                
                                 <td class="text-center"> {{$review->answer2_linemanagerrate}}</td>
+                                <td class="text-center"> {{$review->answer2_seniormanagerrate}}</td>
                                 </tr>               
                                 </tbody>
                                 </table>
@@ -293,8 +296,9 @@
                                     <td>3. Encourages and assists others in enhancing the
                                         quality of their work  </td>
                                     <td class="text-center">{{$review->answer3_personalrate}}</td>
-                                    <td class="text-center"> {{$review->answer3_seniormanagerrate}}</td>
+                                    
                                     <td class="text-center"> {{$review->answer3_linemanagerrate}}</td>
+                                    <td class="text-center"> {{$review->answer3_seniormanagerrate}}</td>
                                     </tr>               
                                     </tbody>
                                     </table>
@@ -333,8 +337,9 @@
                                         <td>4. Is adept at providing and receiving feedback
                                             constructively  </td>
                                         <td class="text-center">{{$review->answer4_personalrate}}</td>
-                                        <td class="text-center"> {{$review->answer4_seniormanagerrate}}</td>
+                                        
                                         <td class="text-center"> {{$review->answer4_linemanagerrate}}</td>
+                                        <td class="text-center"> {{$review->answer4_seniormanagerrate}}</td>
                                         </tr>               
                                         </tbody>
                                         </table>
@@ -374,8 +379,9 @@
                                                 and in writing
                                                   </td>
                                             <td class="text-center">{{$review->answer5_personalrate}}</td>
-                                            <td class="text-center"> {{$review->answer5_seniormanagerrate}}</td>
+                                            
                                             <td class="text-center"> {{$review->answer5_linemanagerrate}}</td>
+                                            <td class="text-center"> {{$review->answer5_seniormanagerrate}}</td>
                                             </tr>               
                                             </tbody>
                                             </table>
@@ -415,8 +421,9 @@
                                                     morale
                                                      </td>
                                                 <td class="text-center">{{$review->answer6_personalrate}}</td>
-                                                <td class="text-center"> {{$review->answer6_seniormanagerrate}}</td>
+                                                
                                                 <td class="text-center"> {{$review->answer6_linemanagerrate}}</td>
+                                                <td class="text-center"> {{$review->answer6_seniormanagerrate}}</td>
                                                 </tr>               
                                                 </tbody>
                                                 </table>
@@ -454,8 +461,9 @@
                                                     
                                                     <td>7. Can be relied upon to complete tasks accurately  </td>
                                                     <td class="text-center">{{$review->answer7_personalrate}}</td>
-                                                    <td class="text-center"> {{$review->answer7_seniormanagerrate}}</td>
+                                                    
                                                     <td class="text-center"> {{$review->answer7_linemanagerrate}}</td>
+                                                    <td class="text-center"> {{$review->answer7_seniormanagerrate}}</td>
                                                     </tr>               
                                                     </tbody>
                                                     </table>
@@ -494,8 +502,9 @@
                                                         <td>8. Punctually reports for work and provides advance
                                                             notice of any anticipated absences  </td>
                                                         <td class="text-center">{{$review->answer8_personalrate}}</td>
-                                                        <td class="text-center"> {{$review->answer8_seniormanagerrate}}</td>
+                                                        
                                                         <td class="text-center"> {{$review->answer8_linemanagerrate}}</td>
+                                                        <td class="text-center"> {{$review->answer8_seniormanagerrate}}</td>
                                                         </tr>               
                                                         </tbody>
                                                         </table>
@@ -534,8 +543,9 @@
                                                             <td>9. Takes instructions and or directions with good
                                                                 judgment and follows leaders effectively  </td>
                                                             <td class="text-center">{{$review->answer9_personalrate}}</td>
-                                                            <td class="text-center"> {{$review->answer9_seniormanagerrate}}</td>
+                                                            
                                                             <td class="text-center"> {{$review->answer9_linemanagerrate}}</td>
+                                                            <td class="text-center"> {{$review->answer9_seniormanagerrate}}</td>
                                                             </tr>               
                                                             </tbody>
                                                             </table>
@@ -574,8 +584,9 @@
                                                                 <td>10. Plays a consistent role in elevating existing standards
                                                                     for our development and achievements  </td>
                                                                 <td class="text-center">{{$review->answer10_personalrate}}</td>
-                                                                <td class="text-center"> {{$review->answer10_seniormanagerrate}}</td>
+                                                                
                                                                 <td class="text-center"> {{$review->answer10_linemanagerrate}}</td>
+                                                                <td class="text-center"> {{$review->answer10_seniormanagerrate}}</td>
                                                                 </tr>               
                                                                 </tbody>
                                                                 </table>
@@ -799,7 +810,42 @@ demonstrates a passion to succeed on his/her role
                                 
                                 </div>
 
+                               
+                              
 
+<div class="row  m-5 ">
+  <div class="col-8 border p-4"><h1>Overall Performance Rating </h1></div>
+  <div style="background-color: red ; color: white" class="col-4 border  p-4"><h1 class="text-center">
+    @php
+        $total = (
+        (int)$review->answer1_personalrate + (int)$review->answer2_personalrate + (int)$review->answer3_personalrate +
+        (int)$review->answer4_personalrate + (int)$review->answer5_personalrate + (int)$review->answer6_personalrate +
+        (int)$review->answer7_personalrate + (int)$review->answer8_personalrate + (int)$review->answer9_personalrate +
+        (int)$review->answer10_personalrate + (int)$review->answer1_seniormanagerrate + (int)$review->answer2_seniormanagerrate +
+        (int)$review->answer3_seniormanagerrate + (int)$review->answer4_seniormanagerrate + (int)$review->answer5_seniormanagerrate +
+        (int)$review->answer6_seniormanagerrate + (int)$review->answer7_seniormanagerrate + (int)$review->answer8_seniormanagerrate +
+        (int)$review->answer9_seniormanagerrate + (int)$review->answer10_seniormanagerrate + (int)$review->answer1_linemanagerrate +
+        (int)$review->answer2_linemanagerrate + (int)$review->answer3_linemanagerrate + (int)$review->answer4_linemanagerrate +
+        (int)$review->answer5_linemanagerrate + (int)$review->answer6_linemanagerrate + (int)$review->answer7_linemanagerrate +
+        (int)$review->answer8_linemanagerrate + (int)$review->answer9_linemanagerrate + (int)$review->answer10_linemanagerrate
+    );
+
+    if ($review->job_title === 'line manager') {
+                          $total = ($total/= 2) + (int)$review->seniormanager_evaluation1 +(int)$review->seniormanager_evaluation2 +
+                          (int)$review->seniormanager_evaluation3 +(int)$review->seniormanager_evaluation4 +
+                          (int)$review->seniormanager_evaluation5 + (int)$review->linemanager_rating1 +(int)$review->linemanager_rating2 +
+                          (int)$review->linemanager_rating3 +(int)$review->linemanager_rating4 +(int)$review->linemanager_rating5 ;
+                      } else {
+                          $total =($total/= 3) + (int)$review->seniormanager_evaluation1 +(int)$review->seniormanager_evaluation2 +
+                          (int)$review->seniormanager_evaluation3 +(int)$review->seniormanager_evaluation4 +
+                          (int)$review->seniormanager_evaluation5 + (int)$review->linemanager_rating1 +(int)$review->linemanager_rating2 +
+                          (int)$review->linemanager_rating3 +(int)$review->linemanager_rating4 +(int)$review->linemanager_rating5 ;;
+                      }
+    @endphp
+
+    {{ number_format($total, 2) }}
+</h1></div>
+</div>
                                 <div class="card mt-5">
                                     <div class="card-header text-center px-auto">
                                     <h4 class=" text-center mx-auto">VERIFICATION OF REVIEW

@@ -30,11 +30,10 @@
                 <!-- Profile Image -->
                 <div class="card card-primary card-outline">
                   <div class="card-body box-profile">
-                    <div class="text-center">
-                      <img class="profile-user-img img-fluid img-circle"
-                      
-                      src="{{asset('/dist/img/download.png')}}"
-                           alt="User profile picture">
+                    <div class="text-center image">
+                     <a target="_blank" href="{{$users->logo ? asset('storage/' . $users->logo) : asset('/dist/img/download.png')}}"> <img class="profile-user-img img-fluid img-circle" 
+                      style="height: 120px; width: 120px;"
+                      src="{{$users->logo ? asset('storage/' . $users->logo) : asset('/dist/img/download.png')}}" alt="User profile picture"></a>
                     </div>
     
                     <h3 class="profile-username text-center">{{$users->name}}</h3>
@@ -88,7 +87,7 @@
                   <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
                   
   
-                  <p class="text-muted">USA, Califorina</p>
+                  <p class="text-muted">{{$users->location}}</p>
                 </div>
                 <!-- /.card-body -->
               </div>

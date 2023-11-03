@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Contracts\Validation\Rule;
@@ -80,6 +82,7 @@ public function userProfile($id) {
             
             
         ]);
+       
     
         // Check if the email already exists
         $existingUser = User::where('email', $formFields['email'])->first();
@@ -98,7 +101,7 @@ public function userProfile($id) {
         // Login
         auth()->login($user);
     
-        return redirect('/')->with('message', 'User logged in successfully');
+        return redirect('/task')->with('message', 'User logged in successfully');
         }
     
        
@@ -111,6 +114,36 @@ public function userProfile($id) {
 
     public function edit(User $user){
         return view ('users.edit',['user'=>$user]);
+    }
+
+    public function update(Request $request, User $user){
+        // Validate the incoming request data
+        Log::info('User data:', ['user' => $user]);
+        $formFields = $request->validate([
+            
+            'email' => 'required|email|unique:users,email,' . $user->id,
+            
+            'phone_number' => 'nullable',
+            'location' => 'nullable',
+            
+        ]);
+    
+       
+        Log::info('Form fields:', $formFields);
+        // Check if a logo file was uploaded
+        if ($request->hasFile('logo')) {
+            $uploadedFile = $request->file('logo');
+            $path = $uploadedFile->store('profilepics', 'public');
+            Log::info('Uploaded file path: ' . $path);
+            $formFields['logo'] = $path;
+        }
+        Log::info('Updated data:', $formFields);
+        Log::info('Form fields: ' . json_encode($formFields));
+        // Update the user's information with the validated data
+        $user->update($formFields);
+        
+       
+        return redirect('/staffhome')->with('message', 'Info updated successfully');
     }
 
 

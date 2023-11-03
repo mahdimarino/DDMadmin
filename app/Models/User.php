@@ -7,6 +7,7 @@ use App\Models\Task;
 use App\Models\Report;
 use App\Models\Listing;
 use App\Models\Request;
+use App\Models\Profilepic;
 use App\Models\Employeerequest;
 use App\Models\PerformanceReview;
 use Laravel\Sanctum\HasApiTokens;
@@ -27,6 +28,14 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+       
+        'job_title',
+        'group_name',
+        'phone_number',
+        'user_role',
+        'logo',
+        'image',
+        
     ];
 
     /**
@@ -48,6 +57,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    
+    public function profilepics(){
+        return $this-> hasOne(Profilepic::class, 'user_id');
+    }
 
     public function reports(){
         return $this-> hasMany(Report::class, 'user_id');

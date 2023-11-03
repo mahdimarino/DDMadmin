@@ -33,7 +33,7 @@
                     <div class="text-center">
                       <img class="profile-user-img img-fluid img-circle"
                       
-                      src="{{asset('/dist/img/download.png')}}"
+                      src="{{$user->logo ? asset('storage/' . $user->logo) : asset('/dist/img/download.png')}}"
                            alt="User profile picture">
                     </div>
     
@@ -43,17 +43,17 @@
     
                     <ul class="list-group list-group-unbordered mb-3">
                       <li class="list-group-item">
-                        <b>Job Title</b> <a class="float-right">{{$user->job_title}}</a>
+                        <b>Job Title</b> <a href="/users/?job_title={{ $user->job_title }}" class="float-right">{{$user->job_title}}</a>
                       </li>
                       <li class="list-group-item">
-                        <b><i class="fa-solid nav-icon fas fa-users mr-1"></i> Group</b> <a class="float-right">{{$user->group_name}}</a>
+                        <b><i class="fa-solid nav-icon fas fa-users mr-1"></i> Group</b> <a href="/users/?group_name={{ $user->group_name }}" class="float-right">{{$user->group_name}}</a>
                       </li>
                       <li class="list-group-item">
                         <b><i class="far fa-file-alt mr-1"></i> Reports</b> <a class="float-right" href="{{ route('report.singleEmployeeReports', ['userId' => $user->id]) }}">View Reports</a>
                       </li>
                     </ul>
     
-                    <a href="#" class="btn btn-primary btn-block"><b>Check Performance</b></a>
+                    {{-- <a href="#" class="btn btn-primary btn-block"><b>Check Performance</b></a> --}}
                     
                   </div>
                   <!-- /.card-body -->

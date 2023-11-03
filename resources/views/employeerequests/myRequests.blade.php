@@ -38,7 +38,7 @@
    
     <div class="post clearfix">
     <div class="user-block">
-    <img class="img-circle img-bordered-sm" src="{{asset('/dist/img/download.png')}}" alt="User Image">
+    <img class="img-circle img-bordered-sm" src="{{auth()->user()->logo ? asset('storage/' . auth()->user()->logo) : asset('/dist/img/download.png')}}" alt="User Image">
     <span class="username">
     <a href="#">{{ $employeerequest->user_name }}</a>
     
@@ -53,17 +53,18 @@
 
 
 </span>
-    <span class="description">{{ $employeerequest->user->job_title }}</span>
+    <span class="description">{{ $employeerequest->user->job_title }} - {{ $employeerequest->created_at }}</span>
     
     
     </div>
     {{-- <h4>{{ $employeerequest->title }}</h4> --}}
     <p>
+        <b>{{ $employeerequest->title }}</b><br>
         {{ $employeerequest->content }}
     </p>
-    <p>
+    {{-- <p>
     <a href="#" class="link-black text-sm"><i class="fas fa-link mr-1"></i> Visit the Link</a>
-    </p>
+    </p> --}}
     
     </div>
     

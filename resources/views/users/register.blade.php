@@ -30,13 +30,13 @@
   <div class="register-box">
   <div class="card card-outline card-primary">
   <div class="card-header text-center">
-  <a href="../../index2.html" class="h1"><b>Sing Up </b></a>
+  <a href="../../index2.html" class="h1"><b>Register </b></a>
   </div>
   <div class="card-body">
   <p class="login-box-msg">Register a new member</p>
-  <form action="/users" method="POST">
+  <form action="users" method="POST">
     @csrf
-      <input type="hidden" name="user_role" value="companystaff" required>  
+      <input type="hidden" name="user_role" value="employee" required>  
   <div class="input-group mb-3">
   <input type="text" class="form-control" name="name" placeholder="Full name" required>
   <div class="input-group-append">
@@ -51,33 +51,7 @@
   </div>
   </div>
 
-   <div class="input-group mb-3">
-    <input type="text" class="form-control" name="phone_number" placeholder="Phone Number" required>
-    <div class="input-group-append">
-      @if(session('error'))
-      <div class="alert alert-danger">
-          {{ session('error') }}
-      </div>
-      @endif
-    <div class="input-group-text">
-    <span class="fas fa-mobile"></span>
-    </div>
-    </div>
-    </div> 
-
-     <div class="input-group mb-3">
-      <input type="text" class="form-control" name="job_title" placeholder="Job Title" required>
-      <div class="input-group-append">
-        @if(session('error'))
-        <div class="alert alert-danger">
-            {{ session('error') }}
-        </div>
-    @endif
-      <div class="input-group-text">
-      <span class="fas fa-briefcase"></span>
-      </div>
-      </div>
-      </div> 
+    
 
 
   <div class="input-group mb-3">
@@ -95,19 +69,59 @@
   </div>
 
 
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" name="phone_number" placeholder="Phone Number" required>
+    <div class="input-group-append">
+      @if(session('error'))
+      <div class="alert alert-danger">
+          {{ session('error') }}
+      </div>
+      @endif
+    <div class="input-group-text">
+    <span class="fas fa-mobile"></span>
+    </div>
+    </div>
+    </div> 
+
+     <div class="input-group mb-3">
+      <select name="job_title" class="form-control" required>
+        <option value="" disabled selected>Select you Job Title</option>
+        <option value="Account Executive">Account Executive</option>
+        <option value="Account Manager">Account Manager</option>
+        
+    </select>
+      <div class="input-group-append">
+        @if(session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
+      <div class="input-group-text">
+      <span class="fas fa-briefcase"></span>
+      </div>
+      </div>
+      </div>
  
      <div class="input-group mb-3">
       <select name="group_name" class="form-control" required>
           <option value="" disabled selected>Select a Group</option>
-          <option value="Group 1">Group 1</option>
-          <option value="Group 2">Group 2</option>
-          <option value="Group 3">Group 3</option>
+          <option value="RevLine Marketing">RevLine Marketing</option>
+          <option value="Lead2Pipeline">US, EMEA & APAC - Lead2Pipeline Inc.</option>
+          <option value="DemandSkill">DemandSkill</option>
+          <option value="gggIdentify Pulse">Identify Pulse</option>
+          <option value="Arista Demand">Arista Demand</option>
+          <option value="2XPand">2XPand</option>
+          <option value="Advance B2B Media">Advance B2B Media</option>
+         
       </select>
       @if(session('error'))
       <div class="alert alert-danger">
           {{ session('error') }}
       </div>
       @endif
+      <div class="input-group-text">
+        <span class="fas fa-users"></span>
+        </div>
   </div> 
 
 
@@ -140,10 +154,7 @@
   <div class="row">
   <div class="col-8">
   <div class="icheck-primary">
-  <input type="checkbox" id="agreeTerms" name="terms" value="agree">
-  <label for="agreeTerms">
-  I agree to the <a href="#">terms</a>
-  </label>
+    <a href="login" class="text-center">already have an account</a>
   </div>
   </div>
   
@@ -163,7 +174,7 @@
   Sign up using Google+
   </a>
   </div> --}}
-  <a href="login" class="text-center">already have an account</a>
+  
   </div>
   
   </div>

@@ -48,13 +48,8 @@ public function edit(Task $task){
 public function update(Request $request, Task $task){
     $formFields = $request->validate([
         'title'=>'required',
-        'content'=>'required',
-        
-        
+        'content'=>'required', 
     ]);
-
-
-
     $task->update($formFields);
     return redirect('/task/myTaskslist')->with('message','task updated seccessfuly');
 }

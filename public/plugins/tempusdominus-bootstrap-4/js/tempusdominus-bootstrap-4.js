@@ -410,7 +410,7 @@ var DateTimePicker = function ($, moment) {
         }
 
         if (this.widget.find('.timepicker').is(':visible')) {
-          this.widget.find('.btn[data-action="togglePeriod"]').click();
+          this.widget.find('.btn[data-action="/togglePeriod"]').click();
         }
 
         return true;
@@ -821,7 +821,7 @@ var DateTimePicker = function ($, moment) {
         clearTimeout(this._currentPromptTimeTimeout);
         this._currentPromptTimeTimeout = setTimeout(function () {
           if (that.widget) {
-            that.widget.find('[data-action="togglePicker"]').click();
+            that.widget.find('[data-action="/togglePicker"]').click();
           }
         }, this._options.promptTimeOnDateChangeTransitionDelay);
       }

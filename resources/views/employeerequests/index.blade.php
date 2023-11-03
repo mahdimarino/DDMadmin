@@ -35,15 +35,16 @@
     
     <div class="post clearfix">
     <div class="user-block">
-    <img class="img-circle img-bordered-sm" src="../../dist/img/user7-128x128.jpg" alt="User Image">
+    <img class="img-circle img-bordered-sm" src="{{$employeerequest->user->logo ? asset('storage/' . $employeerequest->user->logo) : asset('/dist/img/download.png')}}" alt="User Image">
     <span class="username">
     <a href="#">{{ $employeerequest->user_name }}</a>
     </span>
-    <span class="description">{{ $employeerequest->user->job_title }}</span>
+    <span class="description">{{ $employeerequest->user->job_title }} - {{ $employeerequest->created_at }} </span>
    
     </div>
     
     <p>
+        <b>{{ $employeerequest->title }}</b><br>
         {{ $employeerequest->content }}
     </p>
     {{-- <p>

@@ -85,7 +85,7 @@
                   <td>
                     
                         <li class="list-inline-item">
-                            <img alt="Avatar" class="table-avatar" src="{{asset('/dist/img/download.png')}}">
+                            <img alt="Avatar" class="table-avatar" src="{{$user->logo ? asset('storage/' . $user->logo) : asset('/dist/img/download.png')}}">
                         </li>
                         
                     
